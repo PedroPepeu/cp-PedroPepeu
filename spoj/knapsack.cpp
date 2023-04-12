@@ -3,13 +3,22 @@
 using namespace std;
 
 int s, n;
-int mem[3][2000];
+int mem[2000][2000];
+int v[2000];
+int w[2000];
 
-int db(int i, int s) {
-    if(i > n) return 0;
-    if(s < 0) return ; // retornar o caso atual e tirar o caso que deixou menor que zero
+int max(int i, int j) {
+    if(i > j) return i;
+    return j;
+}
 
-
+int dp(int i, int s) {
+    if (s < 0) return ((numeric_limits<int>::max()) * -1);
+    if (i >= n) return 0;
+    if (mem[i][s] != -1) {
+        return mem[i][s];        
+    }
+    return mem[i][s] = max(dp(i + 1, s), v[i] + dp(i + 1, s - w[i]));
 }
 
 int main() {
@@ -18,14 +27,11 @@ int main() {
     
     memset(mem, -1, sizeof(mem));
     
-    mem[0][0] = s;
-    int i = 0;
-    while(n--) {
-        cin >>  mem[i][1] >> mem[i][2];
-        i++;
+    for(int i = 0; i < n; i++) {
+        cin >> w[i] >> v[i];
     }
 
-    dp(0, S);
+    cout << dp(0, s) << endl;
 
     return 0;
 
