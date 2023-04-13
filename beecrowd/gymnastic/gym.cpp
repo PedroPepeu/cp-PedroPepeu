@@ -14,8 +14,7 @@ long long dp(int t, int k) {
     long long result = 0;
     if(k < N) result += dp(t-1, k+1);
     if(k > M) result += dp(t-1, k-1);
-    long long mod = 1000000000 + 7;
-    return mem[t][k] = result % (mod);
+    return mem[t][k] = result;
 }
 
 
@@ -28,7 +27,7 @@ int main() {
     cin >> T >> M >> N;
     memset(mem, -1, sizeof(mem));
     for(int k = M; k <= N; k++) {
-        result += dp(T, k);
+        result += dp(T, k) % (1000000000 + 7);
     }
     result = result % (1000000000 + 7);
     cout << result << endl;
