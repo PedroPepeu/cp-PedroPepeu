@@ -9,12 +9,8 @@ int main() {
     cin >> n;
     cin >> k;
     while(k--) {
-        bitset<8> b(n);
-        if() {
-            n--;
-        } else {
-            n /= 10;
-        }
+        if(n % 10 == 0) n /= 10;
+        else n -= 1;
     }
     cout << n << endl;
 }
