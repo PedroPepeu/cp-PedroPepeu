@@ -9,7 +9,7 @@ int main() {
 
     int lineCounter = 1;
     
-    for(int i = 1; i < y; i += x) {
+    for(int i = 1; i <= y; i ++) {
         if(lineCounter == x) {
             cout << i << endl;
             lineCounter = 1;
