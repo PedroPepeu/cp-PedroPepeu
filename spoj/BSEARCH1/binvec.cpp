@@ -24,18 +24,20 @@ int binarySearch(int lower, int higher) {
 }
 
 int main() {
-
+    
+    ios_base::sync_with_stdio(false);
+    
     int size, lines;
-    scanf("%d %d", &size, &lines);
+    cin >> size >> lines;
 
     for(int i = 0; i < size; i++) {
-        scanf("%d", &num);
+        cin >> num;
         arr.push_back (num);
     }
 
     for(int i = 0; i < lines; i++) {
-        scanf("%d", &num);
-        printf("%d\n", binarySearch(-1, size));
+        cin >> num;
+        cout << binarySearch(-1, size) << endl;
     }
 
     return 0;
