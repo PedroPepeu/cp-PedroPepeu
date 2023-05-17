@@ -7,15 +7,17 @@ int main() {
     cin >> H >> P >> F >> d;
 
     if(d == -1) {
-        if(H < F && F < P) cout << "S" << endl;
-        else if(F < H && H < P) cout << "N" << endl;
-        else if(F < P && P < H) cout << "S" << endl;
-        else if(H < P && P < F) cout << "N" << endl;
+        if(H > F) {
+            // cop < F and > heli
+        } else {
+            
+        }
     } else {
-        if(H < F && F < P) cout << "N" << endl;
-        else if(F < H && H < P) cout << "S" << endl;
-        else if(F < P && P < H) cout << "N" << endl;
-        else if(H < P && P < F) cout << "S" << endl;
+        if(H > F) {
+
+        } else {
+
+        }
     }
 
     return 0;
