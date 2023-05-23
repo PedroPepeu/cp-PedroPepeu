@@ -1,28 +1,42 @@
 #include <iostream>
-#include <cstring>
-#include <climits>
+#include <vector>
 
 using namespace std;
 
 int main() {
-    int n;
+    int n, numTurm = 1;
+    
     while(cin >> n && n != 0) {
-        int c, m, biggestGrade = INT_MIN;
-        int a[1010][2];
-        memset(a, -1, sizeof(a));
-        for(int i = 0; i < n; i++) {
-            cin >> c >> m;
-            a[i][0] = c;
-            a[i][1] = m;
-            if(biggestGrade < m) biggestGrade = m;
-        }
-        int i = 0;
-        while(a[i][0] != -1) {
-            if(a[i][1] == biggestGrade) {
-                if(a[i + 1][0] == -1) cout << a[1][0] << endl;
-                else cout << a[1][0] << " " << endl;
+        if(numTurm > 1) cout << endl;
+        int cod, grd;
+        vector<int> v;
+        vector<int> cods;
+        cods.erase(cods.begin(), cods.end());
+        v.erase(v.begin(), v.end());
+        v.push_back(-1);
+        while(n--) {
+            cin >> cod >> grd;
+            if(grd > v[0]) {
+                v.erase(v.begin(), v.end());
+                cods.erase(cods.begin(), cods.end());
+                v.push_back(grd);
+                cods.push_back(cod);
             }
-            i++;
+            if(grd == v[0]) {
+                v.push_back(grd);
+                cods.push_back(cod);
+            }
         }
+        cout << "Turma " << numTurm << endl;
+        for(int i = 0; i < cods.size() - 1; i++) {
+            if(i + 1 == cods.size() - 1) {
+                cout << cods[i] << endl;
+                break;
+            }
+            cout << cods[i] << " ";
+        }
+        numTurm++;
     }
+
+    return 0;
 }
