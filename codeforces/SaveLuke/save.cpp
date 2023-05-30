@@ -6,9 +6,9 @@ int main() {
     float d, L, v1, v2;
     cin >> d >> L >> v1 >> v2;
 
-    float time = (1/v1) * ((v1/(v1+v2)) - (d/2));
+    double time = (L - d)/(v1 + v2);
 
-    cout << time << endl;
+    printf("%f\n", time);
 
     return 0;
 
