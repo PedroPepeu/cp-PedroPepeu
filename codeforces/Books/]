@@ -1,0 +1,21 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n, t, b = 0;
+    cin >> n >> t;
+
+    while(n--) {
+        cout << "restam " << t << " min" << endl;
+        int x;
+        cin >> x;
+        if(x > t) continue;
+        t -= x;
+        b++;
+    }    
+
+    cout << b << endl;
+
+    return 0;
+}
